@@ -8,9 +8,6 @@ cache:
   directories:
     - node_modules
 
-script:
-  - yarn install --prod
-
 deploy:
   provider: pages
   skip_cleanup: true
