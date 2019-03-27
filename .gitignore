@@ -1,9 +1,10 @@
 */**
 
 !src/**/*
+.gitignore
 !prettierrc
 !.travis.yml
 !gatsby-config.js
 !package.json
-!yarn.lock
 !README.md
+!yarn.lock
