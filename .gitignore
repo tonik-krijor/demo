@@ -8,6 +8,7 @@
 !prettierrc
 !.travis.yml
 !gatsby-config.js
+!gatsby-node.js
 !package.json
 !README.md
 !yarn.lock
