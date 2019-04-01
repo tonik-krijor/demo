@@ -9,16 +9,7 @@ cache:
     - node_modules
 
 script:
-  - gatsby build --prefix-paths
-
-deploy:
-  provider: pages
-  local_dir: public/
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: false
-  on:
-    branch: master
+  - gatsby build
 
 notifications:
   email: false
