@@ -3,5 +3,14 @@ module.exports = {
     title: `Demo Site`
   },
 
-  plugins: [`gatsby-plugin-netlify-cms`]
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/blog`,
+        name: 'blog'
+      }
+    },
+    `gatsby-plugin-netlify-cms`
+  ]
 };
