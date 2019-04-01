@@ -11,6 +11,7 @@ module.exports = {
         name: 'blog'
       }
     },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-netlify-cms`
   ]
 };
