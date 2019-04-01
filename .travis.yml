@@ -9,7 +9,7 @@ cache:
     - node_modules
 
 script:
-  - gatsby build
+  - yarn lint 
 
 notifications:
   email: false
