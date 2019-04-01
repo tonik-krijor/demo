@@ -1,6 +1,8 @@
-*/**
+/*
 
-!src/**/*
+!src/
+
+!.eslintrc.js
 !.gitignore
 !prettierrc
 !.travis.yml
