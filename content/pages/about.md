@@ -1,4 +1,7 @@
 ---
 title: a
-stuff: []
+stuff:
+  - q
+  - w
+  - e
 ---

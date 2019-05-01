@@ -13,7 +13,11 @@ export default ({
   return (
     <div>
       <h1>{title}</h1>
-      <div>{stuff}</div>
+      <div>
+        <ul>
+          stuff.map(item => <li>{item}</li>)
+        </ul>
+      </div>
     </div>
   );
 };
