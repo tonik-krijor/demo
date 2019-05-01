@@ -5,15 +5,18 @@ export default ({
   data: {
     file: {
       childMarkdownRemark: {
-        frontmatter: { title },
+        frontmatter: { title, image },
         html
       }
     }
   }
 }) => {
+  console.log(title);
+  console.log(image);
   return (
     <div>
       <h1>{title}</h1>
+      <img src={image} style={{ maxWidth: '40rem' }} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
@@ -25,6 +28,7 @@ export const query = graphql`
       childMarkdownRemark {
         frontmatter {
           title
+          image
         }
         html
       }
