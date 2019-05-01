@@ -1,5 +1,6 @@
 ---
 title: Front page modified
+image: /assets/cullan-smith-543341-unsplash.jpg
 ---
 # Hello world
 
