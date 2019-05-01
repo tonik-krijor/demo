@@ -11,7 +11,7 @@ export default function IndexPagePreview({ entry, getAsset }) {
       <IndexPageContent
         image={data.image}
         title={data.title}
-        html="<div></div>"
+        html={data.body}
       />
     );
   } else {
