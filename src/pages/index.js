@@ -1,16 +1,28 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
-export default ({
-  data: {
+export default function IndexPage() {
+  const {
     file: {
       childMarkdownRemark: {
         frontmatter: { title, image },
         html
       }
     }
-  }
-}) => {
+  } = useStaticQuery(graphql`
+    {
+      file(relativePath: { eq: "pages/index.md" }) {
+        childMarkdownRemark {
+          frontmatter {
+            title
+            image
+          }
+          html
+        }
+      }
+    }
+  `);
+
   return (
     <div>
       <h1>{title}</h1>
@@ -18,18 +30,4 @@ export default ({
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
-};
-
-export const query = graphql`
-  {
-    file(relativePath: { eq: "pages/index.md" }) {
-      childMarkdownRemark {
-        frontmatter {
-          title
-          image
-        }
-        html
-      }
-    }
-  }
-`;
+}
