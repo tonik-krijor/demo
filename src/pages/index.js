@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-function IndexPage({
+export default ({
   data: {
     file: {
       childMarkdownRemark: {
@@ -10,16 +10,14 @@ function IndexPage({
       }
     }
   }
-}) {
+}) => {
   return (
     <div>
       <h1>{title}</h1>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
-}
-
-export default IndexPage;
+};
 
 export const query = graphql`
   {
