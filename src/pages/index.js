@@ -11,8 +11,6 @@ export default ({
     }
   }
 }) => {
-  console.log(title);
-  console.log(image);
   return (
     <div>
       <h1>{title}</h1>
