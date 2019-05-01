@@ -13,7 +13,6 @@ collections:
         label: Front page
         name: index
         fields:
-          - { label: Template, name: template, widget: hidden, default: index }
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
           - { label: Body, name: body, , widget: markdown }
