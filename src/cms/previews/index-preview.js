@@ -1,19 +1,11 @@
 import React from 'react';
 import { IndexPageContent } from '../../pages/index';
 
-export default function IndexPagePreview({ entry, widgetFor }) {
+export default function IndexPagePreview({ entry }) {
   const data = entry.getIn(['data']).toJS();
 
-  console.log(widgetFor('body'));
-
   if (data) {
-    return (
-      <IndexPageContent
-        image={data.image}
-        title={data.title}
-        html={widgetFor('body')}
-      />
-    );
+    return <IndexPageContent image={data.image} title={data.title} />;
   } else {
     return <div>Loading...</div>;
   }

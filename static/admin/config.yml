@@ -15,7 +15,6 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
-          - { label: Body, name: body, , widget: markdown }
       - file: content/pages/about.md
         label: About
         name: about
