@@ -4,7 +4,7 @@ import { IndexPageContent } from '../../pages/index';
 export default function IndexPagePreview({ entry, widgetFor }) {
   const data = entry.getIn(['data']).toJS();
 
-  console.log(data);
+  console.log(widgetFor('body'));
 
   if (data) {
     return (
