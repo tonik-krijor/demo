@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
-export function AboutPageContent({ title, stuff }) {
+export function AboutPageLayout({ title, stuff }) {
   return (
     <Layout>
       <Header />
@@ -41,5 +41,5 @@ export default function AboutPage() {
     }
   `);
 
-  return <AboutPageContent title={title} stuff={stuff} />;
+  return <AboutPageLayout title={title} stuff={stuff} />;
 }
