@@ -11,7 +11,7 @@ export default function IndexPagePreview({ entry, widgetFor }) {
       <IndexPageContent
         image={data.image}
         title={data.title}
-        html={widgetFor(data.body)}
+        html={widgetFor('body')}
       />
     );
   } else {
