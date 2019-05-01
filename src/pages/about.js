@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Metadata from '../components/metadata';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
 export function AboutPageContent({ title, stuff }) {
   return (
     <Layout>
+      <Header />
       <div>
         <h1>{title}</h1>
         <div>
@@ -41,10 +41,5 @@ export default function AboutPage() {
     }
   `);
 
-  return (
-    <Metadata>
-      <Header />
-      <AboutPageContent title={title} stuff={stuff} />
-    </Metadata>
-  );
+  return <AboutPageContent title={title} stuff={stuff} />;
 }
