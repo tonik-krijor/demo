@@ -1,0 +1,12 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  background: #ff5722;
+  min-height: 6rem;
+}
+
+.site-title {
+  margin-left: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
