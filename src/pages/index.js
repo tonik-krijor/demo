@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
-export function IndexPageContent({ title, image }) {
+export function IndexPageLayout({ title, image }) {
   return (
     <Layout>
       <Header />
@@ -35,5 +35,5 @@ export default function IndexPage() {
     }
   `);
 
-  return <IndexPageContent title={title} image={image} />;
+  return <IndexPageLayout title={title} image={image} />;
 }
