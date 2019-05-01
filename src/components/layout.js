@@ -1,5 +1,5 @@
 import 'normalize.css';
-import '../style.css';
+import '../global.css';
 
 export default function Layout({ children }) {
   return children;
