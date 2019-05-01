@@ -15,7 +15,9 @@ export default ({
       <h1>{title}</h1>
       <div>
         <ul>
-          stuff.map(item => <li>{item}</li>)
+          {stuff.map(item => (
+            <li>{item}</li>
+          ))}
         </ul>
       </div>
     </div>
