@@ -1,7 +1,9 @@
 ---
 title: a
 stuff:
-  - q
-  - w
-  - e
+  - this
+  - is
+  - a
+  - list
 ---
+
