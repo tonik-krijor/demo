@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Metadata from '../components/metadata';
 import Layout from '../components/layout';
+import Header from '../components/header';
 
 export function IndexPageContent({ title, image }) {
   return (
@@ -36,6 +37,7 @@ export default function IndexPage() {
 
   return (
     <Metadata>
+      <Header />
       <IndexPageContent title={title} image={image} />
     </Metadata>
   );
