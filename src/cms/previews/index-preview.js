@@ -1,7 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { IndexPageLayout } from '../../pages/index';
 
-export default function IndexPagePreview({ entry }) {
+const IndexPagePreview = ({ entry }) => {
   const data = entry.getIn(['data']).toJS();
   return <IndexPageLayout image={data.image} title={data.title} />;
-}
+};
+
+IndexPagePreview.propTypes = {
+  entry: PropTypes.func.isRequired,
+};
+
+export default IndexPagePreview;

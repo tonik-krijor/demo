@@ -1,15 +1,16 @@
 import Helmet from 'react-helmet';
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import 'normalize.css';
 import '../global.css';
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   const {
     site: {
-      siteMetadata: { title, description }
-    }
+      siteMetadata: { title, description },
+    },
   } = useStaticQuery(graphql`
     {
       site {
@@ -29,4 +30,10 @@ export default function Layout({ children }) {
       {children}
     </Fragment>
   );
-}
+};
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default Layout;
