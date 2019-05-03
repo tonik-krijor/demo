@@ -7,7 +7,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // contentDir is the name of the directory inside 'content/'.
     createNodeField({
       node,
-      name: 'contentDir',
+      name: 'sourceInstanceName',
       value: sourceInstanceName
     });
 
