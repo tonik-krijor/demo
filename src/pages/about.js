@@ -3,37 +3,43 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
-export function IndexPageLayout({ title, image }) {
+export function AboutPageLayout({ title, stuff }) {
   return (
     <Layout>
       <Header />
       <div>
         <h1>{title}</h1>
-        <img src={image} style={{ maxWidth: '40rem' }} />
+        <div>
+          <ul>
+            {stuff.map(item => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </Layout>
   );
 }
 
-export default function IndexPage() {
+export default function AboutPage() {
   const {
     file: {
       childMarkdownRemark: {
-        frontmatter: { title, image }
+        frontmatter: { title, stuff }
       }
     }
   } = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "pages/index.md" }) {
+      file(relativePath: { eq: "pages/about.md" }) {
         childMarkdownRemark {
           frontmatter {
             title
-            image
+            stuff
           }
         }
       }
     }
   `);
 
-  return <IndexPageLayout title={title} image={image} />;
+  return <AboutPageLayout title={title} stuff={stuff} />;
 }

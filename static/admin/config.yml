@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: tonik-krijor/demo
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - file: content/pages/index.md
+        label: Front page
+        name: index
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }
+      - file: content/pages/about.md
+        label: About
+        name: about
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Stuff, name: stuff, widget: list }
