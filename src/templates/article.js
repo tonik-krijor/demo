@@ -23,7 +23,7 @@ ArticleTemplateLayout.propTypes = {
 };
 
 const ArticleTemplate = ({ data }) => {
-  const { markdownRemark } = data; // data.markdownRemark holds our post data
+  const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
   return <ArticleTemplateLayout date={frontmatter.date} html={html} />;
 };
