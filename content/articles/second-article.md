@@ -1,5 +1,6 @@
 ---
 date: 2019-05-05
+slug: second-article
 ---
 
 # The second article

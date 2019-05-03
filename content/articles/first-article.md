@@ -1,5 +1,6 @@
 ---
 date: 2019-05-03
+slug: first-article
 ---
 
 # The first article
