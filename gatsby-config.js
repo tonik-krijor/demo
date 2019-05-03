@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: 'Demo Site',
@@ -5,6 +7,14 @@ module.exports = {
   },
 
   plugins: [
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        components: path.join(__dirname, 'src/components'),
+        pages: path.join(__dirname, 'src/pages'),
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

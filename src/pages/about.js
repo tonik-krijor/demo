@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
-import Layout from '../components/layout';
-import Header from '../components/header';
+import Layout from 'components/layout';
+import Header from 'components/header';
 
 const AboutPageLayout = ({ title, stuff }) => (
   <Layout>
