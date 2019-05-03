@@ -6,8 +6,8 @@ import headerStyles from './header.module.css';
 export default function Header() {
   const {
     site: {
-      siteMetadata: { title }
-    }
+      siteMetadata: { title },
+    },
   } = useStaticQuery(graphql`
     {
       site {

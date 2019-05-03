@@ -1,27 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
-export function IndexPageLayout({ title, image }) {
-  return (
-    <Layout>
-      <Header />
-      <div>
-        <h1>{title}</h1>
-        <img src={image} style={{ maxWidth: '40rem' }} />
-      </div>
-    </Layout>
-  );
-}
+const IndexPageLayout = ({ title, image }) => (
+  <Layout>
+    <Header />
+    <div>
+      <h1>{title}</h1>
+      <img src={image} style={{ maxWidth: '40rem' }} alt="" />
+    </div>
+  </Layout>
+);
 
-export default function IndexPage() {
+IndexPageLayout.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
+
+const IndexPage = () => {
   const {
     file: {
       childMarkdownRemark: {
-        frontmatter: { title, image }
-      }
-    }
+        frontmatter: { title, image },
+      },
+    },
   } = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "pages/index.md" }) {
@@ -36,4 +40,8 @@ export default function IndexPage() {
   `);
 
   return <IndexPageLayout title={title} image={image} />;
-}
+};
+
+
+export default IndexPage;
+export { IndexPageLayout };
