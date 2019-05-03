@@ -34,7 +34,7 @@ const AboutPage = () => {
     },
   } = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "pages/about.md" }) {
+      file(sourceInstanceName: { eq: "pages" }, relativePath: { eq: "about.md" }) {
         childMarkdownRemark {
           frontmatter {
             title

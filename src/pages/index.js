@@ -28,7 +28,7 @@ const IndexPage = () => {
     },
   } = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "pages/index.md" }) {
+      file(sourceInstanceName: { eq: "pages" }, relativePath: { eq: "index.md" }) {
         childMarkdownRemark {
           frontmatter {
             title
@@ -41,7 +41,6 @@ const IndexPage = () => {
 
   return <IndexPageLayout title={title} image={image} />;
 };
-
 
 export default IndexPage;
 export { IndexPageLayout };
