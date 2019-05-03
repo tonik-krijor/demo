@@ -21,3 +21,4 @@
 !yarn.lock
 !jest.config.js
 !jest-preprocess.js
+!Dockerfile
