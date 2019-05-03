@@ -22,19 +22,22 @@ const AboutPageLayout = ({ title, stuff }) => (
 
 AboutPageLayout.propTypes = {
   title: PropTypes.string.isRequired,
-  stuff: PropTypes.arrayOf(PropTypes.string).isRequired,
+  stuff: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 const AboutPage = () => {
   const {
     file: {
       childMarkdownRemark: {
-        frontmatter: { title, stuff },
-      },
-    },
+        frontmatter: { title, stuff }
+      }
+    }
   } = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "pages/about.md" }) {
+      file(
+        sourceInstanceName: { eq: "pages" }
+        relativePath: { eq: "about.md" }
+      ) {
         childMarkdownRemark {
           frontmatter {
             title
