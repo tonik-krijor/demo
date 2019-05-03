@@ -28,6 +28,10 @@ const ArticleTemplate = ({ data }) => {
   return <ArticleTemplateLayout date={frontmatter.date} html={html} />;
 };
 
+ArticleTemplate.propTypes = {
+  data: PropTypes.shape({ frontmatter: PropTypes.shape({ date: PropTypes.string }) }).isRequired,
+};
+
 export const query = graphql`
   query($id: String!) {
     markdownRemark(id: { eq: $id }) {
