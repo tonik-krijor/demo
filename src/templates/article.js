@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
@@ -15,6 +16,11 @@ const ArticleTemplateLayout = ({ date, html }) => (
     </div>
   </Layout>
 );
+
+ArticleTemplateLayout.propTypes = {
+  date: PropTypes.string.isRequired,
+  html: PropTypes.string.isRequired,
+};
 
 const ArticleTemplate = ({ data }) => {
   const { markdownRemark } = data; // data.markdownRemark holds our post data
