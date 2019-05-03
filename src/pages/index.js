@@ -16,19 +16,22 @@ const IndexPageLayout = ({ title, image }) => (
 
 IndexPageLayout.propTypes = {
   title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 };
 
 const IndexPage = () => {
   const {
     file: {
       childMarkdownRemark: {
-        frontmatter: { title, image },
-      },
-    },
+        frontmatter: { title, image }
+      }
+    }
   } = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "pages/index.md" }) {
+      file(
+        sourceInstanceName: { eq: "pages" }
+        relativePath: { eq: "index.md" }
+      ) {
         childMarkdownRemark {
           frontmatter {
             title
@@ -41,7 +44,6 @@ const IndexPage = () => {
 
   return <IndexPageLayout title={title} image={image} />;
 };
-
 
 export default IndexPage;
 export { IndexPageLayout };
