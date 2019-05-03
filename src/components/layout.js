@@ -18,7 +18,14 @@ const PureLayout = ({ title, description, children }) => (
 PureLayout.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+};
+
+PureLayout.defaultProps = {
+  children: null,
 };
 
 const Layout = ({ children }) => {
