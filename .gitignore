@@ -3,13 +3,17 @@
 .DS_Store
 
 !content/
+!__tests__/
+!__mocks__/
 !src/
 !static/
 
+!loadershim.js
 !.eslintrc.js
 !.gitignore
 !prettierrc
 !.travis.yml
+!.eslintignore
 !gatsby-config.js
 !gatsby-node.js
 !package.json

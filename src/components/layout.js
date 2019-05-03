@@ -6,6 +6,21 @@ import { graphql, useStaticQuery } from 'gatsby';
 import 'normalize.css';
 import '../global.css';
 
+const PureLayout = ({ title, description, children }) => (
+  <Fragment>
+    <Helmet defaultTitle={title} titleTemplate={`%s - ${title}`}>
+      <meta name="description" content={description} />
+    </Helmet>
+    {children}
+  </Fragment>
+);
+
+PureLayout.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
 const Layout = ({ children }) => {
   const {
     site: {
@@ -23,12 +38,9 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <Fragment>
-      <Helmet defaultTitle={title} titleTemplate={`%s - ${title}`}>
-        <meta name="description" content={description} />
-      </Helmet>
+    <PureLayout title={title} description={description}>
       {children}
-    </Fragment>
+    </PureLayout>
   );
 };
 
@@ -37,3 +49,4 @@ Layout.propTypes = {
 };
 
 export default Layout;
+export { PureLayout };
