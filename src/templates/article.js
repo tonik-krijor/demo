@@ -10,7 +10,10 @@ export default function Article({ data }) {
     <Layout>
       <Header />
       <div>
-        <span>Published: {frontmatter.date}</span>
+        <span>
+          Published:
+          {frontmatter.date}
+        </span>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
