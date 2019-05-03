@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "lint": "eslint \"./**/*.js\"",
+    "lint": "eslint src/**/*.js",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
