@@ -75,7 +75,7 @@ const IndexPage = () => {
             }
             frontmatter {
               title
-              date
+              date(formatString: "MMMM DD, YYYY")
               intro
               image
               imageAlt
