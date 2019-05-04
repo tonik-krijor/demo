@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 
 import headerStyles from './header.module.css';
 
@@ -20,7 +20,9 @@ export default function Header() {
 
   return (
     <div className={headerStyles.siteHeader}>
-      <span className={headerStyles.siteTitle}>{title}</span>
+      <Link to="/">
+        <span className={headerStyles.siteTitle}>{title}</span>
+      </Link>
     </div>
   );
 }
