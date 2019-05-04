@@ -5,7 +5,7 @@ exports.createPages = async ({ actions, graphql }) => {
         edges {
           node {
             id
-            frontmatter {
+            fields {
               slug
             }
           }
@@ -19,8 +19,8 @@ exports.createPages = async ({ actions, graphql }) => {
   const { edges } = queryResult.data.allMarkdownRemark;
 
   edges.forEach(({ node }) => {
-    const { id, frontmatter } = node;
-    const { slug } = frontmatter;
+    const { id, fields } = node;
+    const { slug } = fields;
     createPage({
       path: `articles/${slug}`,
       component: articleTemplate,
@@ -30,15 +30,22 @@ exports.createPages = async ({ actions, graphql }) => {
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  // Adds sourceInstanceName for remark nodes.
   if (node.internal.type === 'MarkdownRemark') {
-    const { sourceInstanceName } = getNode(node.parent);
+    const { sourceInstanceName, name } = getNode(node.parent);
     const { createNodeField } = actions;
 
+    // Adds sourceInstanceName field to remark node.
     createNodeField({
       node,
       name: 'sourceInstanceName',
       value: sourceInstanceName,
+    });
+
+    // Adds slug field to remark node.
+    createNodeField({
+      node,
+      name: 'slug',
+      value: name,
     });
   }
 };
