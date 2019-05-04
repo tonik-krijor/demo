@@ -1,5 +1,5 @@
 ---
 title: Recent articles
-image: /assets/vapor2.jpg
+image: /assets/vapor3.jpg
 ---
 
