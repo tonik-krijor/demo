@@ -2,8 +2,8 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'Demo Site',
-    description: 'A cool site'
+    title: 'A E S T H E T I C',
+    description: 'A cool site',
   },
 
   plugins: [
@@ -19,22 +19,22 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/pages`,
-        name: 'pages'
-      }
+        name: 'pages',
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/articles`,
-        name: 'articles'
-      }
+        name: 'articles',
+      },
     },
     'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`
-      }
-    }
-  ]
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
+  ],
 };
