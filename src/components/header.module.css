@@ -4,6 +4,9 @@
   background: #5615ff;
   color: #ff5fab;
   min-height: 6rem;
+  animation-name: header-animation;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }
 
 .site-title {
@@ -12,4 +15,13 @@
   font-weight: bold;
   color: inherit;
   text-decoration: none;
+}
+
+@keyframes header-animation {
+  0% {
+    background-color: #5615ff;
+  }
+  50% {
+    background-color: #01cdfe;
+  }
 }
