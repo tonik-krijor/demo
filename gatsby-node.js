@@ -19,7 +19,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const { createPage } = actions;
   const articleTemplate = `${__dirname}/src/templates/article.js`;
-  const edges = queryResult.data.allMarkdownRemark.edges;
+  const { edges } = queryResult.data.allMarkdownRemark;
 
   edges.forEach(({ node }) => {
     const { id, frontmatter } = node;
@@ -27,7 +27,7 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: `articles/${slug}`,
       component: articleTemplate,
-      context: { id }
+      context: { id },
     });
   });
 };
@@ -41,7 +41,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: 'file',
-      value: parent
+      value: parent,
     });
   }
 };
