@@ -1,10 +1,10 @@
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
 .image {
-  width: 100vw;
+  width: 100%;
   max-height: 320px;
   object-fit: cover;
+}
+
+.articles {
+  max-width: 960px;
+  margin: 0 auto;
 }
