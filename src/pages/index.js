@@ -3,13 +3,25 @@ import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import Header from '../components/header';
+import ArticleEntry from '../components/article-entry';
 
-const IndexPageLayout = ({ title, image }) => (
+const IndexPageLayout = ({ title, image, articles }) => (
   <Layout>
     <Header />
     <div>
       <h1>{title}</h1>
       <img src={image} style={{ maxWidth: '40rem' }} alt="" />
+      {articles.map(a => (
+        <ArticleEntry
+          key={a.id}
+          title={a.title}
+          date={a.date}
+          intro={a.intro}
+          image={a.image}
+          imageAlt={a.imageAlt}
+          slug={a.slug}
+        />
+      ))}
     </div>
   </Layout>
 );
@@ -17,18 +29,29 @@ const IndexPageLayout = ({ title, image }) => (
 IndexPageLayout.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      date: PropTypes.string,
+      intro: PropTypes.string,
+      image: PropTypes.image,
+      imageAlt: PropTypes.string,
+      slug: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 const IndexPage = () => {
   const {
-    file: {
+    page: {
       childMarkdownRemark: {
         frontmatter: { title, image },
       },
     },
+    articles: { edges },
   } = useStaticQuery(graphql`
     {
-      file(sourceInstanceName: { eq: "pages" }, relativePath: { eq: "index.md" }) {
+      page: file(sourceInstanceName: { eq: "pages" }, relativePath: { eq: "index.md" }) {
         childMarkdownRemark {
           frontmatter {
             title
@@ -36,10 +59,37 @@ const IndexPage = () => {
           }
         }
       }
+      articles: allMarkdownRemark(
+        filter: { fields: { sourceInstanceName: { eq: "articles" } } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              date
+              intro
+              image
+              imageAlt
+              slug
+            }
+          }
+        }
+      }
     }
   `);
 
-  return <IndexPageLayout title={title} image={image} />;
+  const articles = edges.map(({ node: { id, frontmatter } }) => ({
+    id,
+    title: frontmatter.title,
+    date: frontmatter.date,
+    intro: frontmatter.intro,
+    image: frontmatter.image,
+    imageAlt: frontmatter.imageAlt,
+    slug: frontmatter.slug,
+  }));
+  return <IndexPageLayout title={title} image={image} articles={articles} />;
 };
 
 export default IndexPage;
