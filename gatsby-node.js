@@ -19,8 +19,8 @@ exports.createPages = async ({ actions, graphql }) => {
   const { edges } = queryResult.data.allMarkdownRemark;
 
   edges.forEach(({ node }) => {
-    const { id, frontmatter } = node;
-    const { slug } = frontmatter;
+    const { id, fields } = node;
+    const { slug } = fields;
     createPage({
       path: `articles/${slug}`,
       component: articleTemplate,
