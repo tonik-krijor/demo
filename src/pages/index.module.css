@@ -2,3 +2,9 @@
   max-width: 960px;
   margin: 0 auto;
 }
+
+.image {
+  width: 100vw;
+  max-height: 320px;
+  object-fit: cover;
+}

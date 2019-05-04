@@ -12,7 +12,7 @@ const IndexPageLayout = ({ title, image, articles }) => (
     <Header />
     <div className={style.container}>
       <h1>{title}</h1>
-      <img src={image} style={{ maxWidth: '40rem' }} alt="" />
+      <img className={style.image} src={image} style={{ maxWidth: '40rem' }} alt="" />
       {articles.map(a => (
         <ArticleEntry
           key={a.id}
