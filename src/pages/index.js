@@ -10,20 +10,22 @@ import style from './index.module.css';
 const IndexPageLayout = ({ title, image, articles }) => (
   <Layout>
     <Header />
-    <div className={style.container}>
-      <h1>{title}</h1>
+    <div>
       <img className={style.image} src={image} alt="" />
-      {articles.map(a => (
-        <ArticleEntry
-          key={a.id}
-          title={a.title}
-          date={a.date}
-          intro={a.intro}
-          image={a.image}
-          imageAlt={a.imageAlt}
-          slug={a.slug}
-        />
-      ))}
+      <div className={style.articles}>
+        <h1>{title}</h1>
+        {articles.map(a => (
+          <ArticleEntry
+            key={a.id}
+            title={a.title}
+            date={a.date}
+            intro={a.intro}
+            image={a.image}
+            imageAlt={a.imageAlt}
+            slug={a.slug}
+          />
+        ))}
+      </div>
     </div>
   </Layout>
 );
