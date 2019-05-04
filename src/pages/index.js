@@ -66,13 +66,15 @@ const IndexPage = () => {
         edges {
           node {
             id
+            fields {
+              slug
+            }
             frontmatter {
               title
               date
               intro
               image
               imageAlt
-              slug
             }
           }
         }
