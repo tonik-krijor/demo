@@ -5,15 +5,17 @@ import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
+import style from './article.module.css';
+
 const ArticleTemplateLayout = ({ date, html }) => (
   <Layout>
     <Header />
-    <div>
-      <span>
-        Published:
-        {date}
-      </span>
+    <div className={style.container}>
       <div dangerouslySetInnerHTML={{ __html: html }} />
+      <span className={style.publishDate}>
+        Published:
+        {` ${date}`}
+      </span>
     </div>
   </Layout>
 );
