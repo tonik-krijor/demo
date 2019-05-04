@@ -17,8 +17,8 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  const { createPage } = actions;
   const articleTemplate = `${__dirname}/src/templates/article.js`;
+  const { createPage } = actions;
   const { edges } = queryResult.data.allMarkdownRemark;
 
   edges.forEach(({ node }) => {
