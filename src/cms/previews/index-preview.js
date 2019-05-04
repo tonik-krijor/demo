@@ -4,7 +4,7 @@ import { IndexPageLayout } from '../../pages/index';
 
 const IndexPagePreview = ({ entry }) => {
   const data = entry.getIn(['data']).toJS();
-  return <IndexPageLayout image={data.image} title={data.title} />;
+  return <IndexPageLayout image={data.image} title={data.title} articles={[]} />;
 };
 
 IndexPagePreview.propTypes = {
