@@ -5,10 +5,12 @@ import Layout from '../components/layout';
 import Header from '../components/header';
 import ArticleEntry from '../components/article-entry';
 
+import style from './index.module.css';
+
 const IndexPageLayout = ({ title, image, articles }) => (
   <Layout>
     <Header />
-    <div>
+    <div className={style.container}>
       <h1>{title}</h1>
       <img src={image} style={{ maxWidth: '40rem' }} alt="" />
       {articles.map(a => (
