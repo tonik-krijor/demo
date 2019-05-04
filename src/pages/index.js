@@ -82,14 +82,14 @@ const IndexPage = () => {
     }
   `);
 
-  const articles = edges.map(({ node: { id, frontmatter } }) => ({
+  const articles = edges.map(({ node: { id, fields, frontmatter } }) => ({
     id,
     title: frontmatter.title,
     date: frontmatter.date,
     intro: frontmatter.intro,
     image: frontmatter.image,
     imageAlt: frontmatter.imageAlt,
-    slug: frontmatter.slug,
+    slug: fields.slug,
   }));
   return <IndexPageLayout title={title} image={image} articles={articles} />;
 };
