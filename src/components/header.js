@@ -20,8 +20,8 @@ export default function Header() {
 
   return (
     <div className={headerStyles.siteHeader}>
-      <Link to="/">
-        <span className={headerStyles.siteTitle}>{title}</span>
+      <Link to="/" className={headerStyles.siteTitle}>
+        <span>{title}</span>
       </Link>
     </div>
   );
