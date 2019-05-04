@@ -32,5 +32,6 @@ collections:
       - { label: "Introduction", name: "intro", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Image Description", name: "imageAlt", widget: "text" }
+      - { label: "Slug", name: "slug", widget: "text", default: "{{slug}}"}
       - { label: "Body", name: "body", widget: "markdown" }
 
