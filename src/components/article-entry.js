@@ -11,7 +11,7 @@ export default function ArticleEntry({
     <div className={style.container}>
       <img className={style.image} src={image} alt={imageAlt} />
       <div className={style.textContainer}>
-        <Link to={`articles/${slug}`} className={style.titleLink}>
+        <Link to={`/articles/${slug}`} className={style.titleLink}>
           <h3 className={style.title}>{title}</h3>
         </Link>
         <span className={style.publishDate}>{date}</span>
