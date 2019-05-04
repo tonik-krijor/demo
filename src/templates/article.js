@@ -11,11 +11,11 @@ const ArticleTemplateLayout = ({ date, html }) => (
   <Layout>
     <Header />
     <div className={style.container}>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
       <span>
         Published:
-        {date}
+        {` ${date}`}
       </span>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   </Layout>
 );
