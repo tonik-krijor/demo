@@ -19,6 +19,7 @@ const IndexPageLayout = ({ title, image, articles }) => (
           intro={a.intro}
           image={a.image}
           imageAlt={a.imageAlt}
+          slug={a.slug}
         />
       ))}
     </div>
@@ -35,6 +36,7 @@ IndexPageLayout.propTypes = {
       intro: PropTypes.string,
       image: PropTypes.image,
       imageAlt: PropTypes.string,
+      slug: PropTypes.string,
     }),
   ).isRequired,
 };
@@ -70,6 +72,7 @@ const IndexPage = () => {
               intro
               image
               imageAlt
+              slug
             }
           }
         }
@@ -84,6 +87,7 @@ const IndexPage = () => {
     intro: frontmatter.intro,
     image: frontmatter.image,
     imageAlt: frontmatter.imageAlt,
+    slug: frontmatter.slug,
   }));
   return <IndexPageLayout title={title} image={image} articles={articles} />;
 };

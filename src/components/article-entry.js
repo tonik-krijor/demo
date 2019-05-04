@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 export default function ArticleEntry({
-  title, date, intro, image, imageAlt,
+  title, date, intro, image, imageAlt, slug,
 }) {
   return (
     <div>
       <img src={image} alt={imageAlt} />
       <span>{date}</span>
-      <h3>{title}</h3>
+      <Link to={`articles/${slug}`}>
+        <h3>{title}</h3>
+      </Link>
       <p>{intro}</p>
     </div>
   );
@@ -20,4 +23,5 @@ ArticleEntry.propTypes = {
   intro: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   imageAlt: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };
