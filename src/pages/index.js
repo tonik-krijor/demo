@@ -3,25 +3,40 @@ import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import Header from '../components/header';
+import ArticleEntry from '../components/article-entry';
 
-const IndexPageLayout = ({ title, image, articles }) => {
-  console.log(articles);
-  return (
-    <Layout>
-      <Header />
-      <div>
-        <h1>{title}</h1>
-        <img src={image} style={{ maxWidth: '40rem' }} alt="" />
-      </div>
-    </Layout>
-  );
-};
+const IndexPageLayout = ({ title, image, articles }) => (
+  <Layout>
+    <Header />
+    <div>
+      <h1>{title}</h1>
+      <img src={image} style={{ maxWidth: '40rem' }} alt="" />
+      {articles.map(a => (
+        <ArticleEntry
+          key={a.id}
+          title={a.title}
+          date={a.date}
+          intro={a.intro}
+          image={a.image}
+          imageAlt={a.imageAlt}
+        />
+      ))}
+    </div>
+  </Layout>
+);
 
 IndexPageLayout.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  articles: PropTypes.arrayOf(PropTypes.shape({ date: PropTypes.string, html: PropTypes.string }))
-    .isRequired,
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      date: PropTypes.string,
+      intro: PropTypes.string,
+      image: PropTypes.image,
+      imageAlt: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 const IndexPage = () => {
@@ -48,18 +63,28 @@ const IndexPage = () => {
       ) {
         edges {
           node {
+            id
             frontmatter {
+              title
               date
+              intro
+              image
+              imageAlt
             }
-            html
           }
         }
       }
     }
   `);
 
-  const articles = edges.map(({ node }) => ({ date: node.frontmatter.date, html: node.html }));
-
+  const articles = edges.map(({ node: { id, frontmatter } }) => ({
+    id,
+    title: frontmatter.title,
+    date: frontmatter.date,
+    intro: frontmatter.intro,
+    image: frontmatter.image,
+    imageAlt: frontmatter.imageAlt,
+  }));
   return <IndexPageLayout title={title} image={image} articles={articles} />;
 };
 
