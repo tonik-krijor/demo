@@ -14,7 +14,7 @@ export default function ArticleEntry({
         <Link to={`articles/${slug}`} className={style.titleLink}>
           <h3 className={style.title}>{title}</h3>
         </Link>
-        {date}
+        <span className={style.publishDate}>{date}</span>
         <p className={style.intro}>{intro}</p>
       </div>
     </div>
