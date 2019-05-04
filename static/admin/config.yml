@@ -21,3 +21,15 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Stuff, name: stuff, widget: list }
+  - name: articles
+    label: Articles
+    folder: content/articles
+    create: true
+    slug: "{{year}}{{month}}{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Introduction", name: "intro", widget: "text" }
+      - { label: "Image", name: "image", widget: image }
+      - { label: "Body", name: "body", widget: "markdown" }
+
