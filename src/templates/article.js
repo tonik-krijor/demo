@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import Header from '../components/header';
 
+import style from './article.module.css';
+
 const ArticleTemplateLayout = ({ date, html }) => (
   <Layout>
     <Header />
-    <div>
+    <div className={style.container}>
       <span>
         Published:
         {date}
