@@ -12,7 +12,7 @@ const ArticleTemplateLayout = ({ date, html }) => (
     <Header />
     <div className={style.container}>
       <div dangerouslySetInnerHTML={{ __html: html }} />
-      <span>
+      <span className={style.publishDate}>
         Published:
         {` ${date}`}
       </span>
