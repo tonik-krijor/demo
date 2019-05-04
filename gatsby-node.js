@@ -1,10 +1,7 @@
 exports.createPages = async ({ actions, graphql }) => {
   const queryResult = await graphql(`
     {
-      allMarkdownRemark(
-        filter: { fields: { sourceInstanceName: { eq: "articles" } } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+      allMarkdownRemark(filter: { fields: { sourceInstanceName: { eq: "articles" } } }) {
         edges {
           node {
             id
