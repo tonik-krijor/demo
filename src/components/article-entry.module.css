@@ -19,6 +19,12 @@
 .title {
   margin-top: 0;
   margin-bottom: 0.5rem;
+  text-decoration: none;
+  color: #ff5fab;
+}
+
+.titleLink {
+  text-decoration: none;
 }
 
 .intro {
