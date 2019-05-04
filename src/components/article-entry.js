@@ -2,17 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
+import style from './article-entry.module.css';
+
 export default function ArticleEntry({
   title, date, intro, image, imageAlt, slug,
 }) {
   return (
-    <div>
-      <img src={image} alt={imageAlt} />
-      <span>{date}</span>
-      <Link to={`articles/${slug}`}>
-        <h3>{title}</h3>
-      </Link>
-      <p>{intro}</p>
+    <div className={style.container}>
+      <img className={style.image} src={image} alt={imageAlt} />
+      <div className={style.textContainer}>
+        <Link to={`articles/${slug}`}>
+          <h3 className={style.title}>{title}</h3>
+        </Link>
+        <p className={style.intro}>{intro}</p>
+        <span>{date}</span>
+      </div>
     </div>
   );
 }
