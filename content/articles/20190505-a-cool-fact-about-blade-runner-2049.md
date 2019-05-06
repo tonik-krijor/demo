@@ -1,5 +1,5 @@
 ---
-title: A Cool Fact About Blade Runner 2049
+title: A Boring Fact About Blade Runner 2049
 date: 2019-05-04T22:26:29.078Z
 intro: >-
   In this article we'll reveal a fact about Blade Runner 2049 that will blow
